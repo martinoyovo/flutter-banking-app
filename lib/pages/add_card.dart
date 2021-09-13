@@ -47,7 +47,7 @@ class _AddCardState extends State<AddCard> {
               children: [
                 Container(
                   height: cardSize*0.35,
-                  padding: EdgeInsets.fromLTRB(16, 10, 20, 0),
+                  padding: EdgeInsets.fromLTRB(16, 10, 20, 20),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
                       color: Styles.accentColor
@@ -71,7 +71,7 @@ class _AddCardState extends State<AddCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       customColumn(title: "CARD NUMBER", subtitle: "**** **** **** ****"),
-                      Gap(5),
+                      Spacer(),
                       Row(
                         children: [
                           customColumn(title: "CARD HOLDER NAME", subtitle: "N/A"),
