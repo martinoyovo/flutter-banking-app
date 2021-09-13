@@ -13,11 +13,4 @@ class Styles {
   static TextStyle titleStyle = TextStyle(
       fontFamily: "DMSans",fontSize: getProportionateScreenWidth(19), fontWeight: FontWeight.w500);
 
-  static Color getColor(String? c) => c == null ? primaryColor : hexToColor(c);
-  static TextStyle getOfferStyle(String? c) => TextStyle(fontWeight: FontWeight.bold, fontSize: 19, color: getColor(c));
-
-}
-
-Color hexToColor(String code) {
-  return new Color(int.parse(code.substring(1, code.length), radix: 16) + 0xFF000000);
 }
