@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_banking_app/pages/send_money.dart';
 import 'package:flutter_banking_app/utils/styles.dart';
 import 'package:flutter_banking_app/widgets/bottom_nav.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Styles.primaryColor,
         backgroundColor: Styles.primaryColor
       ),
-      home: BottomNav()
+      home: BottomNav(),
     );
   }
 }

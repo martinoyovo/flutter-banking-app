@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_banking_app/utils/iconly/iconly_light.dart';
+import 'package:gap/gap.dart';
 
-AppBar myAppBar({required String title, String? stringColor, required bool implyLeading, required BuildContext context}) {
+AppBar myAppBar({required String title, String? stringColor, required bool implyLeading, required BuildContext context, bool? hasAction}) {
   return AppBar(
     centerTitle: true,
     title: Text(title, style: TextStyle(color: Colors.white, fontSize: 18),),
@@ -14,5 +16,10 @@ AppBar myAppBar({required String title, String? stringColor, required bool imply
           onPressed: () => Navigator.pop(context),
         )
     ) : SizedBox(),
+    actions: hasAction == true
+    ?[
+      Icon(IconlyBroken.Search),
+      Gap(15)
+    ] : null,
   );
 }

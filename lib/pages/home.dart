@@ -21,7 +21,7 @@ class Home extends StatelessWidget {
       elevation: 0,
       child: ListView(
         physics: BouncingScrollPhysics(),
-        padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(15)),
+        padding: EdgeInsets.symmetric(horizontal: 15),
         children: [
           Gap(getProportionateScreenHeight(50)),
           Row(
@@ -48,61 +48,58 @@ class Home extends StatelessWidget {
             ],
           ),
           Gap(25),
-          GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (c) => AddCard())),
-            child: FittedBox(
-              child: Container(
-                height: size.height*0.23,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: size.width*0.67,
-                      padding: EdgeInsets.fromLTRB(16, 10, 0, 20),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.horizontal(left: Radius.circular(15)),
-                        color: Styles.accentColor
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(Assets.cardsVisaYellow, width: 60, height: 50, fit: BoxFit.cover,),
-                          Text("\$20,000.00", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white),),
-                          Gap(20),
-                          Text("CARD NUMBER", style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 12),),
-                          Gap(5),
-                          Text("3829 4820 4629 5025", style: TextStyle(color: Colors.white, fontSize: 15),),
-                        ],
-                      ),
+          FittedBox(
+            child: Container(
+              height: size.height*0.23,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: size.width*0.67,
+                    padding: EdgeInsets.fromLTRB(16, 10, 0, 20),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.horizontal(left: Radius.circular(15)),
+                      color: Styles.accentColor
                     ),
-                    Container(
-                      width: size.width*0.27,
-                      padding: EdgeInsets.fromLTRB(20, 10, 0, 20),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.horizontal(right: Radius.circular(15)),
-                          color: Styles.yellowColor
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(10),
-                            margin: EdgeInsets.only(top: 10),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Styles.accentColor
-                            ),
-                            child: Icon(Icons.swipe_rounded, color: Colors.white, size: 20,),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset(Assets.cardsVisaYellow, width: 60, height: 50, fit: BoxFit.cover,),
+                        Text("\$20,000.00", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32, color: Colors.white),),
+                        Gap(20),
+                        Text("CARD NUMBER", style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: 12),),
+                        Gap(5),
+                        Text("3829 4820 4629 5025", style: TextStyle(color: Colors.white, fontSize: 15),),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: size.width*0.27,
+                    padding: EdgeInsets.fromLTRB(20, 10, 0, 20),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.horizontal(right: Radius.circular(15)),
+                        color: Styles.yellowColor
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          margin: EdgeInsets.only(top: 10),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Styles.accentColor
                           ),
-                          Spacer(),
-                          Text("VALID", style: TextStyle(fontSize: 12),),
-                          Gap(5),
-                          Text("05/22", style: TextStyle(fontSize: 15),),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                          child: Icon(Icons.swipe_rounded, color: Colors.white, size: 20,),
+                        ),
+                        Spacer(),
+                        Text("VALID", style: TextStyle(fontSize: 12),),
+                        Gap(5),
+                        Text("05/22", style: TextStyle(fontSize: 15),),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
           ),
@@ -116,13 +113,16 @@ class Home extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: shortcutList.map<Widget>((item) {
-                return Container(
-                  padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: item['color'].withOpacity(0.15)
+                return InkWell(
+                  onTap: () => item['route'] == null ? null : Navigator.push(context, MaterialPageRoute(builder: (c) => item['route'])),
+                  child: Container(
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: item['color'].withOpacity(0.15)
+                    ),
+                    child: Icon(item['icon'], color: item['color'],),
                   ),
-                  child: Icon(item['icon'], color: item['color'],),
                 );
               }).toList(),
             ),

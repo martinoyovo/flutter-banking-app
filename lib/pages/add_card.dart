@@ -37,7 +37,7 @@ class _AddCardState extends State<AddCard> {
       backgroundColor: Styles.primaryColor,
       appBar: myAppBar(title: "Add Card", implyLeading: true, context: context),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: EdgeInsets.all(15),
         children: [
           Container(
             width: double.infinity,
@@ -61,7 +61,7 @@ class _AddCardState extends State<AddCard> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(20, 12, 0, 0),
+                  padding: EdgeInsets.fromLTRB(20, 12, 0, 20),
                   height: cardSize*0.65,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.vertical(bottom: Radius.circular(15)),
@@ -71,7 +71,7 @@ class _AddCardState extends State<AddCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       customColumn(title: "CARD NUMBER", subtitle: "**** **** **** ****"),
-                      Gap(5),
+                      Spacer(),
                       Row(
                         children: [
                           customColumn(title: "CARD HOLDER NAME", subtitle: "N/A"),

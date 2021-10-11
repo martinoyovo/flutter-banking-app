@@ -49,27 +49,19 @@ class _BottomNavState extends State<BottomNav> {
         unselectedItemColor: Color(0xFF526480),
         items: const [
           BottomNavigationBarItem(
-            icon: Padding(
-                padding: EdgeInsets.only(bottom: 20),
-                child: Icon(IconlyBold.Home)),
+            icon: Icon(IconlyBold.Home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Padding(
-                padding: EdgeInsets.only(bottom: 20),
-                child: Icon(IconlyBold.Wallet)),
+            icon: Icon(IconlyBold.Wallet),
             label: 'Wallet',
           ),
           BottomNavigationBarItem(
-            icon: Padding(
-                padding: EdgeInsets.only(bottom: 20),
-                child: Icon(IconlyBold.Chart)),
+            icon: Icon(IconlyBold.Chart),
             label: 'Stats',
           ),
           BottomNavigationBarItem(
-            icon: Padding(
-                padding: EdgeInsets.only(bottom: 20),
-                child: Icon(IconlyBold.Profile,)),
+            icon: Icon(IconlyBold.Profile,),
             label: 'Profile',
           ),
         ],

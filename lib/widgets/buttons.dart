@@ -12,8 +12,8 @@ Widget elevatedButton({required BuildContext context, required VoidCallback call
             primary: color == null ? Styles.primaryColor: color,
             elevation: 0,
             //shadowColor: Colors.indigoAccent,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
-            padding: EdgeInsets.symmetric(vertical: 14),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+            padding: EdgeInsets.symmetric(vertical: 15),
             textStyle: TextStyle(fontFamily: "DMSans", color: Colors.white, fontWeight: FontWeight.w500, fontSize: 17)),
         onPressed: callback
       ),

@@ -29,6 +29,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons:
   gap:
+  fl_chart:
 
 dev_dependencies:
   flutter_test:
@@ -49,7 +50,7 @@ flutter:
       fonts:
         - asset: assets/fonts/Iconly_Bold.ttf
 
-    - family: IconlyLight
+    - family: IconlyBroken
       fonts:
         - asset: assets/fonts/Iconly_Light.ttf
 
