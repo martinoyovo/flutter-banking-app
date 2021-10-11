@@ -1,12 +1,11 @@
-# flutter_banking_app
+# Flutter Banking App 🔥
 
-A new Flutter project.
+Mobile Banking App inspired by [Twinkle Creative](https://dribbble.com/shots/16369224-Banking-Mobile-App).
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
+<p float="left">
+  <img src="https://github.com/martinoyovo/flutter-banking-app/blob/main/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-09-13%20at%2019.28.58.png" width="280" />
+  <img src="https://github.com/martinoyovo/flutter-banking-app/blob/main/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2012%20Pro%20Max%20-%202021-09-13%20at%2019.28.54.png" width="280" />
+</p>
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
