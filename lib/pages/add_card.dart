@@ -10,17 +10,15 @@ import 'package:flutter_banking_app/widgets/my_app_bar.dart';
 import 'package:gap/gap.dart';
 
 class AddCard extends StatefulWidget {
-  AddCard({Key? key}) : super(key: key);
+  const AddCard({Key? key}) : super(key: key);
 
   @override
   _AddCardState createState() => _AddCardState();
 }
 
 class _AddCardState extends State<AddCard> {
-  TextEditingController _cardHolderName = TextEditingController();
-  TextEditingController _cardNumber = TextEditingController();
-  TextEditingController _expiryDate = TextEditingController();
-  TextEditingController _cvc = TextEditingController();
+  final TextEditingController _cardHolderName = TextEditingController();
+  final TextEditingController _cardNumber = TextEditingController();
   List paymentCardsList = [
     Assets.cardsVisa,
     Assets.cardsMastercard,
@@ -31,52 +29,62 @@ class _AddCardState extends State<AddCard> {
   @override
   Widget build(BuildContext context) {
     final size = Layouts.getSize(context);
-    final cardSize = size.height*0.23;
+    final cardSize = size.height * 0.23;
     SizeConfig.init(context);
     return Scaffold(
       backgroundColor: Styles.primaryColor,
-      appBar: myAppBar(title: "Add Card", implyLeading: true, context: context),
+      appBar: myAppBar(title: 'Add Card', implyLeading: true, context: context),
       body: ListView(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         children: [
-          Container(
+          SizedBox(
             width: double.infinity,
             height: cardSize,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: cardSize*0.35,
-                  padding: EdgeInsets.fromLTRB(16, 10, 20, 20),
+                  height: cardSize * 0.35,
+                  padding: const EdgeInsets.fromLTRB(16, 10, 20, 20),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
-                      color: Styles.accentColor
+                    borderRadius:
+                        const BorderRadius.vertical(top: Radius.circular(15)),
+                    color: Styles.accentColor,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset(Assets.cardsVisaWhite, width: 60, height: 45, fit: BoxFit.cover,),
-                      Text("\$00.00", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22, color: Colors.white),),
+                      Image.asset(Assets.cardsVisaWhite,
+                          width: 60, height: 45, fit: BoxFit.cover),
+                      const Text('\$00.00',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22,
+                              color: Colors.white)),
                     ],
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(20, 12, 0, 20),
-                  height: cardSize*0.65,
+                  padding: const EdgeInsets.fromLTRB(20, 12, 0, 20),
+                  height: cardSize * 0.65,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.vertical(bottom: Radius.circular(15)),
-                      color: Styles.yellowColor
+                    borderRadius: const BorderRadius.vertical(
+                        bottom: Radius.circular(15)),
+                    color: Styles.yellowColor,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      customColumn(title: "CARD NUMBER", subtitle: "**** **** **** ****"),
-                      Spacer(),
+                      customColumn(
+                          title: 'CARD NUMBER',
+                          subtitle: '**** **** **** ****'),
+                      const Spacer(),
                       Row(
                         children: [
-                          customColumn(title: "CARD HOLDER NAME", subtitle: "N/A"),
-                          Gap(40),
-                          customColumn(title: "VALID", subtitle: "N/A")
+                          customColumn(
+                              title: 'CARD HOLDER NAME', subtitle: 'N/A'),
+                          const Gap(40),
+                          customColumn(title: 'VALID', subtitle: 'N/A')
                         ],
                       )
                     ],
@@ -85,17 +93,17 @@ class _AddCardState extends State<AddCard> {
               ],
             ),
           ),
-          Gap(20),
+          const Gap(20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: paymentCardsList.map<Widget>((paymentCard) {
               return MaterialButton(
                 elevation: 0,
-                color: Color(0xFF232D40),
+                color: const Color(0xFF232D40),
                 minWidth: 70,
                 height: 100,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(13)
+                  borderRadius: BorderRadius.circular(13),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -109,17 +117,22 @@ class _AddCardState extends State<AddCard> {
                         shape: BoxShape.circle,
                         image: DecorationImage(
                           image: AssetImage(paymentCard),
-                          fit: BoxFit.contain
-                        )
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
-                    Gap(15),
+                    const Gap(15),
                     AnimatedSwitcher(
-                      duration: Duration(milliseconds: 700),
-                      child: Icon(selectedCard == paymentCardsList.indexOf(paymentCard)
-                          ? Icons.check_circle
-                          : Icons.circle_outlined,
-                        color: selectedCard == paymentCardsList.indexOf(paymentCard) ? Styles.blueColor : Colors.white.withOpacity(0.5),),
+                      duration: const Duration(milliseconds: 700),
+                      child: Icon(
+                        selectedCard == paymentCardsList.indexOf(paymentCard)
+                            ? Icons.check_circle
+                            : Icons.circle_outlined,
+                        color: selectedCard ==
+                                paymentCardsList.indexOf(paymentCard)
+                            ? Styles.blueColor
+                            : Colors.white.withOpacity(0.5),
+                      ),
                     )
                   ],
                 ),
@@ -131,28 +144,37 @@ class _AddCardState extends State<AddCard> {
               );
             }).toList(),
           ),
-          Gap(30),
-          DefaultTextField(controller: _cardHolderName, title: "Card Holder Name"),
-          DefaultTextField(controller: _cardNumber, title: "Card Number", label: "5632-1587-536-256",),
+          const Gap(30),
+          DefaultTextField(
+              controller: _cardHolderName, title: 'Card Holder Name'),
+          DefaultTextField(
+              controller: _cardNumber,
+              title: 'Card Number',
+              label: '5632-1587-536-256'),
           Row(
             children: [
               Flexible(
-                child: DefaultTextField(controller: _cardNumber, title: "Expiry date", label: "05/2022",),
+                child: DefaultTextField(
+                    controller: _cardNumber,
+                    title: 'Expiry date',
+                    label: '05/2022'),
               ),
-              Gap(10),
+              const Gap(10),
               Flexible(
-                child: DefaultTextField(controller: _cardNumber, title: "CVC/CVV", label: "******", obscure: true,),
+                child: DefaultTextField(
+                    controller: _cardNumber,
+                    title: 'CVC/CVV',
+                    label: '******',
+                    obscure: true),
               ),
             ],
           ),
-          Gap(10),
+          const Gap(10),
           elevatedButton(
             color: Styles.blueColor,
             context: context,
-            callback: () {
-
-            },
-            text: "Add Card"
+            callback: () {},
+            text: 'Add Card',
           )
         ],
       ),
@@ -163,9 +185,9 @@ class _AddCardState extends State<AddCard> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title.toUpperCase(), style: TextStyle(fontSize: 12),),
-        Gap(4),
-        Text(subtitle, style: TextStyle(fontSize: 16),),
+        Text(title.toUpperCase(), style: const TextStyle(fontSize: 12)),
+        const Gap(4),
+        Text(subtitle, style: const TextStyle(fontSize: 16)),
       ],
     );
   }

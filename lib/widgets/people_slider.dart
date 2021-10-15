@@ -2,17 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_banking_app/json/user_list.dart';
 import 'package:flutter_banking_app/utils/layouts.dart';
 import 'package:flutter_banking_app/utils/size_config.dart';
-import 'package:flutter_banking_app/utils/styles.dart';
-
 
 class PeopleSlider extends StatefulWidget {
+  const PeopleSlider({Key? key}) : super(key: key);
 
   @override
   _PeopleSliderState createState() => _PeopleSliderState();
 }
 
 class _PeopleSliderState extends State<PeopleSlider> {
-
   var controller = ScrollController();
   var currentPage = 0;
   @override
@@ -27,14 +25,15 @@ class _PeopleSliderState extends State<PeopleSlider> {
     });
     return _body(size.height, theme);
   }
+
   _body(double height, ThemeData theme) {
-    double _height = height*0.19;
+    double _height = height * 0.19;
     return SizedBox(
       height: _height,
       child: ListView.builder(
         controller: controller,
         scrollDirection: Axis.horizontal,
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemCount: userList.length,
         itemBuilder: (context, index) {
           final item = userList[index];
@@ -44,7 +43,9 @@ class _PeopleSliderState extends State<PeopleSlider> {
                 currentPage = index;
               });
               print(controller.offset);
-              controller.animateTo(470, duration: Duration(milliseconds: 700), curve: Curves.elasticOut);
+              controller.animateTo(470,
+                  duration: const Duration(milliseconds: 700),
+                  curve: Curves.elasticOut);
               //controller.animateToPage(index, duration: Duration(milliseconds: 700), curve: Curves.elasticOut);
             },
             child: Column(
@@ -52,20 +53,23 @@ class _PeopleSliderState extends State<PeopleSlider> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 AnimatedContainer(
-                  duration: Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 200),
                   height: (index == currentPage) ? 100 : 65,
                   width: (index == currentPage) ? 100 : 65,
-                  margin: EdgeInsets.symmetric(horizontal: 12),
+                  margin: const EdgeInsets.symmetric(horizontal: 12),
                   decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: item["color"]
+                    shape: BoxShape.circle,
+                    color: item['color'],
                   ),
                   child: Transform.scale(
-                    scale: 0.55,
-                    child: Image.asset(item["avatar"])),
+                      scale: 0.55, child: Image.asset(item['avatar'])),
                 ),
-                SizedBox(height: 15,),
-                (index == currentPage) ? Text(item["name"], style: TextStyle(color: Colors.white, fontSize: 21),) : Text("")
+                const SizedBox(height: 15),
+                (index == currentPage)
+                    ? Text(item['name'],
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 21))
+                    : const Text('')
               ],
             ),
           );
