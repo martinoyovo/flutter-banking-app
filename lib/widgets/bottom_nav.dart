@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_banking_app/pages/home.dart';
 import 'package:flutter_banking_app/pages/profile.dart';
@@ -18,11 +17,11 @@ class BottomNav extends StatefulWidget {
 /// This is the private State class that goes with MyStatefulWidget.
 class _BottomNavState extends State<BottomNav> {
   int _selectedIndex = 0;
-  static List<Widget> _widgetOptions = <Widget>[
-    Home(),
-    Wallet(),
-    Stats(),
-    Profile()
+  static final List<Widget> _widgetOptions = <Widget>[
+    const Home(),
+    const Wallet(),
+    const Stats(),
+    const Profile(),
   ];
 
   void _onItemTapped(int index) {
@@ -46,7 +45,7 @@ class _BottomNavState extends State<BottomNav> {
         selectedLabelStyle: TextStyle(fontSize: 20, color: Styles.primaryColor),
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Styles.blueColor,
-        unselectedItemColor: Color(0xFF526480),
+        unselectedItemColor: const Color(0xFF526480),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(IconlyBold.Home),
@@ -61,7 +60,7 @@ class _BottomNavState extends State<BottomNav> {
             label: 'Stats',
           ),
           BottomNavigationBarItem(
-            icon: Icon(IconlyBold.Profile,),
+            icon: Icon(IconlyBold.Profile),
             label: 'Profile',
           ),
         ],

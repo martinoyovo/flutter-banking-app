@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_banking_app/pages/send_money.dart';
 import 'package:flutter_banking_app/utils/styles.dart';
 import 'package:flutter_banking_app/widgets/bottom_nav.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -15,11 +16,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Banking App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: "DMSans",
+        fontFamily: 'DMSans',
         primaryColor: Styles.primaryColor,
-        backgroundColor: Styles.primaryColor
+        backgroundColor: Styles.primaryColor,
       ),
-      home: BottomNav(),
+      home: const BottomNav(),
     );
   }
 }

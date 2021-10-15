@@ -3,18 +3,18 @@ import 'package:flutter_banking_app/utils/size_config.dart';
 import 'package:flutter_banking_app/utils/styles.dart';
 
 Widget elevatedButton({required BuildContext context, required VoidCallback callback, required String text, Color? color}) {
-  return Container(
+  return SizedBox(
     width: double.infinity,
       //padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
       child: ElevatedButton(
         child: Text(text),
         style: ElevatedButton.styleFrom(
-            primary: color == null ? Styles.primaryColor: color,
+            primary: color ?? Styles.primaryColor,
             elevation: 0,
             //shadowColor: Colors.indigoAccent,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
             padding: EdgeInsets.symmetric(vertical: 15),
-            textStyle: TextStyle(fontFamily: "DMSans", color: Colors.white, fontWeight: FontWeight.w500, fontSize: 17)),
+            textStyle: TextStyle(fontFamily: 'DMSans', color: Colors.white, fontWeight: FontWeight.w500, fontSize: 17)),
         onPressed: callback
       ),
   );
