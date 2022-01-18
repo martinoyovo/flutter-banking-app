@@ -1,4 +1,4 @@
-# Complete Mobile Banking Template(Dark+Light Theme) build with ♥️ with Flutter 🔥
+# Complete Mobile Banking Template(Dark+Light Theme) built with ♥️ with Flutter 🔥
 
 Inspired by [Twinkle Creative](https://dribbble.com/shots/16369224-Banking-Mobile-App).
 
