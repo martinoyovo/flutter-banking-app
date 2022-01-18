@@ -36,6 +36,7 @@ class _SendMoneyState extends State<SendMoney> {
       backgroundColor: Repository.bgColor(context),
       appBar: myAppBar(title: 'Send Money', implyLeading: true, context: context),
       bottomSheet: Container(
+        color: Repository.bgColor(context),
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 40),
         child: elevatedButton(
           color: Repository.selectedItemColor(context),
