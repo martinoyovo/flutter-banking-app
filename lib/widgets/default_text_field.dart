@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_banking_app/repo/repository.dart';
 import 'package:flutter_banking_app/utils/input_decoration.dart';
 import 'package:flutter_banking_app/utils/size_config.dart';
 import 'package:flutter_banking_app/utils/styles.dart';
@@ -65,9 +66,9 @@ class DefaultTextField extends StatelessWidget {
             return validator?.call(value);
           },
           controller: controller,
-          decoration: inputDecoration(text: label ?? _title, prefixIcon: _prefixIcon, suffixIcon: _suffixIcon),
+          decoration: inputDecoration(text: label ?? _title, prefixIcon: _prefixIcon, suffixIcon: _suffixIcon, context: context),
           autovalidateMode: AutovalidateMode.onUserInteraction,
-          style: TextStyle(color: Colors.white.withOpacity(0.5)),
+          style: TextStyle(color: Repository.fieldColor(context)),
         ),
         Gap(getProportionateScreenHeight(20)),
       ],

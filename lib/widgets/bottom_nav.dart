@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_banking_app/pages/home.dart';
-import 'package:flutter_banking_app/pages/profile.dart';
-import 'package:flutter_banking_app/pages/stats.dart';
-import 'package:flutter_banking_app/pages/wallet.dart';
+import 'package:flutter_banking_app/repo/repository.dart';
 import 'package:flutter_banking_app/utils/iconly/iconly_bold.dart';
 import 'package:flutter_banking_app/utils/styles.dart';
+import 'package:flutter_banking_app/views/home.dart';
+import 'package:flutter_banking_app/views/profile.dart';
+import 'package:flutter_banking_app/views/stats.dart';
+import 'package:flutter_banking_app/views/wallet.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class BottomNav extends StatefulWidget {
@@ -33,19 +34,17 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Styles.primaryColor,
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        elevation: 0,
-        backgroundColor: Styles.primaryWithOpacityColor,
+        backgroundColor: Repository.navbarColor(context),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         selectedLabelStyle: TextStyle(fontSize: 20, color: Styles.primaryColor),
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Styles.blueColor,
-        unselectedItemColor: const Color(0xFF526480),
+        selectedItemColor: Repository.selectedItemColor(context),
+        unselectedItemColor: Colors.grey.withOpacity(0.7),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(IconlyBold.Home),

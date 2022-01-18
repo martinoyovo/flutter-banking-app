@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_banking_app/generated/assets.dart';
+import 'package:flutter_banking_app/repo/repository.dart';
 import 'package:flutter_banking_app/utils/size_config.dart';
 import 'package:flutter_banking_app/utils/styles.dart';
 import 'package:flutter_banking_app/widgets/buttons.dart';
@@ -32,14 +33,12 @@ class _SendMoneyState extends State<SendMoney> {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     return Scaffold(
-      backgroundColor: Styles.primaryColor,
-      appBar:
-          myAppBar(title: 'Send Money', implyLeading: true, context: context),
+      backgroundColor: Repository.bgColor(context),
+      appBar: myAppBar(title: 'Send Money', implyLeading: true, context: context),
       bottomSheet: Container(
-        color: Styles.primaryColor,
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 40),
         child: elevatedButton(
-          color: Styles.blueColor,
+          color: Repository.selectedItemColor(context),
           context: context,
           callback: () {},
           text: 'Send Money',
@@ -55,7 +54,7 @@ class _SendMoneyState extends State<SendMoney> {
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Styles.primaryWithOpacityColor,
+                  color: Repository.headerColor2(context),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,18 +87,16 @@ class _SendMoneyState extends State<SendMoney> {
                 child: Container(
                   padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
-                    borderRadius:
-                        const BorderRadius.vertical(top: Radius.circular(50)),
-                    color: Styles.primaryColor,
+                    borderRadius: const BorderRadius.vertical(top: Radius.circular(50)),
+                    color: Repository.bgColor(context),
                   ),
                   child: Container(
                     padding: const EdgeInsets.all(6),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Styles.primaryWithOpacityColor,
+                      color: Repository.headerColor2(context),
                     ),
-                    child: Icon(Icons.keyboard_backspace_rounded,
-                        color: Colors.white.withOpacity(0.5), size: 18),
+                    child: Icon(Icons.keyboard_backspace_rounded, color: Colors.white.withOpacity(0.5), size: 18),
                   ),
                 ),
               ),
@@ -111,18 +108,18 @@ class _SendMoneyState extends State<SendMoney> {
                   decoration: BoxDecoration(
                     borderRadius:
                         const BorderRadius.vertical(top: Radius.circular(50)),
-                    color: Styles.primaryColor,
+                    color: Repository.bgColor(context),
                   ),
                   child: Container(
-                    padding: const EdgeInsets.all(6),
+                    padding: const EdgeInsets.all(4),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Styles.primaryWithOpacityColor,
+                      color: Repository.headerColor2(context),
                     ),
                     child: Transform.rotate(
                       angle: math.pi,
                       child: const Icon(Icons.keyboard_backspace_rounded,
-                          color: Colors.white, size: 18),
+                          color: Colors.white, size: 16),
                     ),
                   ),
                 ),
@@ -136,8 +133,8 @@ class _SendMoneyState extends State<SendMoney> {
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: Styles.primaryWithOpacityColor,
-            ),
+                color: Repository.accentColor2(context),
+                border: Border.all(color: Repository.accentColor(context))            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -147,40 +144,40 @@ class _SendMoneyState extends State<SendMoney> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('\$1600.00',
+                      Text('\$1600.00',
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Repository.titleColor(context),
                               fontSize: 32,
                               fontWeight: FontWeight.bold)),
                       Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 18, vertical: 12),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(18),
-                            color: Styles.primaryColor,
+                            borderRadius: BorderRadius.circular(14),
+                            color: Repository.dividerColor(context),
                           ),
                           child: Row(
                             children: [
-                              const Text('USD',
+                              Text('USD',
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Repository.titleColor(context),
                                       fontSize: 24,
                                       fontWeight: FontWeight.bold)),
                               const Gap(8),
                               Icon(CupertinoIcons.chevron_down,
-                                  color: Colors.white.withOpacity(0.7),
-                                  size: 20)
+                                  color: Repository.titleColor(context),
+                                  size: 18)
                             ],
                           )),
                     ],
                   ),
                 ),
-                Divider(color: Styles.primaryColor, thickness: 2),
+                Divider(color: Repository.dividerColor(context), thickness: 2),
                 Container(
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                     child: Text('Send Money Purpose',
                         style:
-                            TextStyle(color: Colors.white.withOpacity(0.7)))),
+                            TextStyle(color: Repository.subTextColor(context)))),
                 const Gap(10),
               ],
             ),

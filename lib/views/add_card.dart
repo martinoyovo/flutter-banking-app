@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_banking_app/generated/assets.dart';
+import 'package:flutter_banking_app/repo/repository.dart';
 import 'package:flutter_banking_app/utils/layouts.dart';
 import 'package:flutter_banking_app/utils/size_config.dart';
 import 'package:flutter_banking_app/utils/styles.dart';
@@ -32,7 +33,7 @@ class _AddCardState extends State<AddCard> {
     final cardSize = size.height * 0.23;
     SizeConfig.init(context);
     return Scaffold(
-      backgroundColor: Styles.primaryColor,
+      backgroundColor: Repository.bgColor(context),
       appBar: myAppBar(title: 'Add Card', implyLeading: true, context: context),
       body: ListView(
         padding: const EdgeInsets.all(15),
@@ -49,7 +50,7 @@ class _AddCardState extends State<AddCard> {
                   decoration: BoxDecoration(
                     borderRadius:
                         const BorderRadius.vertical(top: Radius.circular(15)),
-                    color: Styles.accentColor,
+                    color: Styles.greenColor,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,7 +100,7 @@ class _AddCardState extends State<AddCard> {
             children: paymentCardsList.map<Widget>((paymentCard) {
               return MaterialButton(
                 elevation: 0,
-                color: const Color(0xFF232D40),
+                color: Repository.accentColor(context),
                 minWidth: 70,
                 height: 100,
                 shape: RoundedRectangleBorder(
@@ -130,7 +131,7 @@ class _AddCardState extends State<AddCard> {
                             : Icons.circle_outlined,
                         color: selectedCard ==
                                 paymentCardsList.indexOf(paymentCard)
-                            ? Styles.blueColor
+                            ? Repository.selectedItemColor(context)
                             : Colors.white.withOpacity(0.5),
                       ),
                     )
@@ -171,7 +172,7 @@ class _AddCardState extends State<AddCard> {
           ),
           const Gap(10),
           elevatedButton(
-            color: Styles.blueColor,
+            color: Repository.selectedItemColor(context),
             context: context,
             callback: () {},
             text: 'Add Card',

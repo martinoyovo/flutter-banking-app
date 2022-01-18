@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_banking_app/pages/send_money.dart';
 import 'package:flutter_banking_app/utils/iconly/iconly_bold.dart';
+import 'package:flutter_banking_app/views/send_money.dart';
 
 List shortcutList = [
   {
