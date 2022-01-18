@@ -1,6 +1,6 @@
-# Flutter Banking App 🔥
+# Complete Mobile Banking Template build with ♥️ with Flutter 🔥
 
-Mobile Banking App inspired by [Twinkle Creative](https://dribbble.com/shots/16369224-Banking-Mobile-App).
+Inspired from [Twinkle Creative](https://dribbble.com/shots/16369224-Banking-Mobile-App).
 
 <p float="center">
    <img src="https://github.com/martinoyovo/flutter-banking-app/blob/main/screenshots/Simulator%20Screen%20Shot%20-%20iPhone%2013%20-%202022-01-18%20at%2003.22.23.png" width="190"/>
