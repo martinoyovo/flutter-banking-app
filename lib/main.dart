@@ -15,9 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => ViewModel())
-      ],
+      providers: [ChangeNotifierProvider(create: (_) => ViewModel())],
       child: MaterialApp(
         title: 'Flutter Banking App',
         debugShowCheckedModeBanner: false,
